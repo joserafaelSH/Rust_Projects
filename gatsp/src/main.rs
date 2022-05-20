@@ -2,6 +2,7 @@ use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+//
 // fn ler_entrada(filename: &str) -> Vec<Vec<i32>> {
 //     let file = File::open(filename).unwrap();
 //     let reader = BufReader::new(file);
