@@ -31,17 +31,24 @@ fn main() {
     while contador < max_generations {
         //calculando o fitness de cada cromossomo
         let fitness = genetic::calcular_fitness(population.clone(), tam, &mut cities);
+
         //idx do melhor cromossomo
+
         let idx_melhor = genetic::melhor_cromossomo(fitness.clone());
-        println!("{:?}", population[idx_melhor]);
-        println!(
-            "{}",
-            genetic::value_of_cromossome(population[idx_melhor].clone(), tam, &mut cities)
-        );
+
+        let aux = genetic::value_of_cromossome(population[idx_melhor].clone(), tam, &mut cities);
+        println!("{}", aux);
+        // if aux <= 33000.0 {
+        //     break;
+        // }
         //primeiro individuo selecionado
         let idx1: i32 = genetic::selecao_por_roleta(fitness.clone());
         //segundo individuo selecionado
-        let idx2: i32 = genetic::selecao_por_roleta(fitness.clone());
+        let mut idx2: i32 = genetic::selecao_por_roleta(fitness.clone());
+        while idx1 == idx2 {
+            idx2 = genetic::selecao_por_roleta(fitness.clone());
+        }
+
         //melhor resultado do cruzamento entre os dois individuos selecionados
         let mut filho: Vec<i32> = genetic::cruzamento_cx(
             population[idx1 as usize].clone(),
@@ -50,12 +57,14 @@ fn main() {
         );
         //idx do pior cromossomo
         let idx_pior = genetic::pior_cromossomo(fitness.clone());
+
         //numero aleatorio para definir se vai ou nao acontecer a mutacao
         let mut rng = rand::thread_rng();
         let rand_choice = rng.gen_range(0.0..1.0);
         if rand_choice <= mutacao {
             genetic::mutacao(&mut filho);
         }
+
         //trocando o pior pelo novo individuo gerado
 
         population[idx_pior] = filho;

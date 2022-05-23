@@ -118,29 +118,31 @@ pub fn cruzamento_cx(pai1: Vec<i32>, pai2: Vec<i32>, cities: &mut Vec<[f64; 2]>)
 pub fn pior_cromossomo(fitness: Vec<f64>) -> usize {
     let mut minvalues: f64 = fitness[0];
     let mut minidx: usize = 0;
-    while minidx < fitness.len() {
-        if minvalues > fitness[minidx] {
-            minvalues = fitness[minidx];
-            return minidx;
+    let mut c = 0;
+    while c < fitness.len() {
+        if minvalues > fitness[c] {
+            minvalues = fitness[c];
+            minidx = c;
         }
-        minidx += 1;
+        c += 1;
     }
 
-    return 0;
+    return minidx;
 }
 
 pub fn melhor_cromossomo(fitness: Vec<f64>) -> usize {
     let mut maxvalues: f64 = fitness[0];
     let mut maxidx: usize = 0;
-    while maxidx < fitness.len() {
-        if maxvalues < fitness[maxidx] {
-            maxvalues = fitness[maxidx];
-            return maxidx;
+    let mut c = 0;
+    while c < fitness.len() {
+        if maxvalues < fitness[c] {
+            maxvalues = fitness[c];
+            maxidx = c;
         }
-        maxidx += 1;
+        c += 1;
     }
 
-    return 0;
+    return maxidx;
 }
 
 pub fn mutacao(alvo: &mut Vec<i32>) {
@@ -150,7 +152,6 @@ pub fn mutacao(alvo: &mut Vec<i32>) {
     while rand_choice1 == rand_choice2 {
         rand_choice2 = rng.gen_range(0..alvo.len());
     }
-    // println!("{:?}", alvo);
+
     (alvo[rand_choice1], alvo[rand_choice2]) = (alvo[rand_choice2], alvo[rand_choice1]);
-    // println!("{:?}", alvo);
 }
