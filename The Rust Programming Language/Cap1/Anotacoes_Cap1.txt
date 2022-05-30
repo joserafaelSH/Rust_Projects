@@ -1,0 +1,15 @@
+1- rustc faz a compilacao igual o g++/gcc e para executar é ./nomedoaqruivo
+2- Cargo serve para montar seu programa, importando as libs e dependencias
+do projeto 
+3- cargo build monta o projeto e gera um executavel na pasta debug e o Cargo.lock,
+que mapeia as dependencias e suas versoes, do seu projeto 
+4- Para fazer a build e executar o projeto utilizamos o cargo run
+5- Tambem tem o comando cargo check, que compila o seu codigo mas nao gera um
+executavel, sendo muito mais rapido que o cargo build. Utilizado para verificar
+se o programa continua sendo compilado.
+6- Cargo padroniza comandos, nao importa qual plataforma de SO esteja rodando.
+7- Quando o projeto estiver pronto, cargo build --release, faz a build e compila
+com otimizacoes, criando um executavel na pasta target/release. A otimizacao
+acelera ainda mais o programa.
+8- O cargo build deve ser executado sempre que um projeto rust for clonado
+9- Sera que a pasta target pode ser adicionado no gitignore?

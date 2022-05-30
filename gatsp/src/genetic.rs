@@ -1,3 +1,4 @@
+
 use rand::seq::SliceRandom;
 use rand::Rng;
 
@@ -5,7 +6,8 @@ pub fn distance(ax: f64, ay: f64, bx: f64, by: f64) -> f64 {
     let x = bx - ax;
     let y = by - ay;
     let aux = (x * x) + (y * y);
-    return aux.sqrt();
+    return aux.sqrt(); 
+    
 }
 
 pub fn value_of_cromossome(cromossome: Vec<i32>, tam: usize, cities: &mut Vec<[f64; 2]>) -> f64 {
@@ -129,6 +131,7 @@ pub fn pior_cromossomo(fitness: Vec<f64>) -> usize {
 
     return minidx;
 }
+
 
 pub fn melhor_cromossomo(fitness: Vec<f64>) -> usize {
     let mut maxvalues: f64 = fitness[0];

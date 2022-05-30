@@ -1,0 +1,24 @@
+1- para receber inputs do teclado, std::io deve ser importado. Uma variavel
+mutavel do tipo String deve ser criado para servir como buffer para a funcao
+stdin().read_line(&mut buffer)
+2- variaveis e referencias de variasveis sao originalmente imutaveis
+3- referencias utilizando &
+4- a funcao .expect("mensagem de erro") utilizada para tratar o resultado da
+leitura de entrada do usuario. o read_line retorna um tipo Result, sendo Ok ou
+err. Caso seja Ok o programa conitua sua execucao normalmente, mas se for err, 
+a mensagem passada no .expect e exibida
+5- o compilador avisa caso exista possibilidade de erro que nao foi tratado, por
+exemplo se a funcao de ser a entrada nao tiver o .expect 
+6- o arquivo Cargo.toml e utilizado para fazer a build do programa, sempre 
+utilizando as versoes passadas ali.
+7- Caso queira atualizar as dependencias, o cargo update deve ser utilizado, 
+lendo o Cargo.lock e atualizando as dependencias do programa
+8- Para converter valores existe o recurso de shadow, onde voce cria outra
+variavel com o mesmo nome, porem a segunda vai ter outro tipo, o tipo da
+conversao
+9- o match funciona como um switch case, que combinado com o .cmp auxilia na 
+comparacao de variaveis
+10- loop{} serve para criar um loop simples no codigo, sendo controlado por break
+e continue 
+11- o match tambem serve para receber o resultado de um Result e verificar
+seu tipo
