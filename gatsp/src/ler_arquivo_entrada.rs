@@ -1,6 +1,6 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-
+//teste
 //
 // fn ler_entrada(filename: &str) -> Vec<Vec<i32>> {
 //     let file = File::open(filename).unwrap();
